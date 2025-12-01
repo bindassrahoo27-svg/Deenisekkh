@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: islamic-app
+    env: node
+    buildCommand: npm run build
+    startCommand: serve -s build
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
