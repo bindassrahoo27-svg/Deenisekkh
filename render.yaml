@@ -1,12 +1,24 @@
 services:
-  - type: web
+  - type: static
     name: islamic-app
-    env: node
-    buildCommand: npm run build
-    startCommand: serve -s build
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build
     envVars:
-      - key: NODE_VERSION
-        value: 18.17.0
+      - key: REACT_APP_FIREBASE_API_KEY
+        value: "AIzaSyDn6V7p5zfY1P4Y7KXGaTvfZkivuYbhhjg"
+      - key: REACT_APP_FIREBASE_AUTH_DOMAIN
+        value: "raaz-cf574.firebaseapp.com"
+      - key: REACT_APP_FIREBASE_DATABASE_URL
+        value: "https://raaz-cf574-default-rtdb.firebaseio.com"
+      - key: REACT_APP_FIREBASE_PROJECT_ID
+        value: "raaz-cf574"
+      - key: REACT_APP_FIREBASE_STORAGE_BUCKET
+        value: "raaz-cf574.firebasestorage.app"
+      - key: REACT_APP_FIREBASE_MESSAGING_SENDER_ID
+        value: "752137866532"
+      - key: REACT_APP_FIREBASE_APP_ID
+        value: "1:752137866532:android:bca4edd1ba14605a3a37b1"
     routes:
       - type: rewrite
         source: /*
